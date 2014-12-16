@@ -1,0 +1,19 @@
+//
+//  DiaryEnvironment.m
+//  diary-mobile
+//
+//  Created by Kenneth Lee on 16/05/2011.
+//  Copyright 2011 diary.com. All rights reserved.
+//
+
+#import \"DiaryEnvironment.h\"
+
+static NSString* flurryKey = @\"<%= @flurry_key %>\";
+
+@implementation DiaryEnvironment
+
++ (NSString*) flurryAccountKey {
+    return flurryKey;
+}
+
+@end

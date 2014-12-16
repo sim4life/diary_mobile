@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Diary Mobile (Dev2)</title>
+
+	<script src="http://192.168.1.79:8080/target/target-script-min.js#anonymous"></script>
+
+    <!-- Sencha Touch CSS -->
+    <link rel="stylesheet" href="css/sencha-touch.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/apple.css" type="text/css"> -->
+    
+    <!-- Application CSS -->
+    <link rel="stylesheet" href="css/application.css" type="text/css">
+    
+    <!-- Sencha Touch JS -->
+    <script type="text/javascript" src="js/sencha-touch.js"></script>
+
+    <!-- Application Utility JS -->
+    <script type="text/javascript" src="js/custom-sencha-components.js"></script>
+	<script type="text/javascript">
+	function goBack() {
+		var loc = window.location.href;
+		var newLoc = loc.replace("index2.html", "index.html");
+		window.location = newLoc;
+	}
+	</script>
+</head>
+
+<body>
+	<p><h1>This is the simple body for index2.html</h1></p>
+	<button type="button" onclick="javascript:goBack();">Click Me to go Back</button>
+</body>
+
+</html>

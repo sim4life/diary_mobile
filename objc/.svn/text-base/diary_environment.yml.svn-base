@@ -1,0 +1,8 @@
+development:
+  flurry_key: 7X7TAJ3NBNK7IG2S1447
+
+staging: 
+  flurry_key: 7X7TAJ3NBNK7IG2S1447
+
+production:
+  flurry_key: AMSXVQVPZGL675PMNCBQ

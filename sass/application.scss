@@ -1,0 +1,975 @@
+@import 'compass/css3';
+
+$text-color: #333;
+
+$item-border-color: #e2e2e2;
+
+$list-item-bg: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
+
+$today-date-color: #fff;
+
+$today-date-highlight: -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#C2FA3B),color-stop(2%,#90CA05),color-stop(100%,#547503)); 
+
+$today-date-font-style: rgba(0, 0, 0, 0.496094) 0px -0.08em 0px;
+
+body {
+    background: #fff url('../rsc/loading.png') no-repeat;
+}
+
+.x-list .x-list-item {
+    border-bottom: 1px solid $item-border-color;
+}
+
+.todo_check_container {
+    float: left;
+	width: 2.6em;
+	height: 2.6em;
+    background-color: red;
+}
+
+.todo_check_container.uncompleted {
+    background: url('../rsc/task-tickbox-sprite.png') 10px 12px no-repeat;
+}
+
+.todo_check_container.completed {
+    background: url('../rsc/task-tickbox-sprite.png') 10px -40px no-repeat;
+}
+
+.x-list-item .x-list-disclosure {
+    margin-right: 0;
+}
+
+.main_task_list .x-list-item {
+    padding: 0;
+}
+
+.x-field-toggle .x-slider {
+    border-radius: .5em;
+}
+
+.x-thumb::before {
+    -webkit-box-shadow: rgba(255, 255, 255, 0.496094) 0px 0px 0.1em inset, rgba(255, 255, 255, 0.296875) 0px -0.1em 0px inset;
+    background-clip: padding-box;
+    background-color: #DDD;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), color-stop(0.02, #F7F7F7), to(#CBCBCB));
+    border: 0.1em solid #919191;
+    border-bottom-left-radius: 0.425em 0.425em;
+    border-bottom-right-radius: 0.425em 0.425em;
+    border-top-left-radius: 0.425em 0.425em;
+    border-top-right-radius: 0.425em 0.425em;
+    content: '';
+    height: 1.7em;
+    left: 0.1em;
+    position: absolute;
+    top: 0em;
+    width: 2.2em;
+}
+
+.x-slider {
+    height: 2em;
+    margin: 0.2em;
+    min-height: 0px;
+    position: relative;
+}
+
+.x-toolbar-dark {
+    background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+}
+
+.x-tabbar-light {
+    background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));    
+    color:#ccc;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 0.1em 0.3em;
+}
+
+.x-tabbar-light.x-docked-bottom .x-tab img {
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f2f2f2), color-stop(0.02, #fff), to(#fff)); 
+}
+
+.x-tabbar-light.x-docked-bottom .x-tab-active {
+    background-color: #333;
+    background-image: none;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.199219) 0px 0.1em 0.1em, rgba(0, 0, 0, 0.296875) 0px 0.1em 0.2em inset;
+}
+    
+.x-button-label, .x-hasbadge .x-badge {
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+}
+
+.x-form-label span {
+    font-size: 0.6em;
+    font-weight: bold;
+}
+
+x-form-field-container {
+    text-align: center;
+}
+
+.todo_list_item {
+    color: $text-color;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    width: 250px;
+    overflow: hidden;
+}
+
+.x-tabbar.x-docked-bottom .x-tab .x-button-label, .x-tabbar.x-docked-bottom .x-tab .x-hasbadge .x-badge, .x-hasbadge .x-tabbar.x-docked-bottom .x-tab .x-badge {
+    color:white;
+    font-size: 10px;
+}
+
+.x-toolbar-title {
+    font-weight: bold;
+}
+
+.x-tabbar-light.x-docked-top .x-tab-active{
+    background-color: transparent;
+    background-image: none;
+    color: white;
+}
+    
+.x-toolbar-dark .x-button, .x-toolbar .x-toolbar-dark .x-button, .x-toolbar-dark .x-field-select .x-input-text, .x-toolbar .x-toolbar-dark .x-field-select .x-input-text {
+    border:3px solid #6C9804;
+    color: white;
+    background-image: -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#C2FA3B),color-stop(2%,#90CA05),color-stop(100%,#547503));
+}
+
+.x-toolbar-dark .x-button.x-button-pressed {   
+    background: transparent;
+    background-image: -webkit-gradient(radial,50% 50%,0,50% 50%,24,color-stop(0%,rgba(255,255,255,0.7)),color-stop(100%,rgba(255,255,255,0)));
+/*     background-image:radial-gradient(center center,circle,rgba(255,255,255,0.7) 0,rgba(255,255,255,0) 24px); */
+  
+}
+
+.x-toolbar-dark .x-button.x-button-pressed.event_add, .x-toolbar-dark .x-button.x-button-pressed.note_add, .x-toolbar-dark .x-button.x-button-pressed.todo_add {   
+    background: url(../rsc/btn-new-entry.png) no-repeat 5px 3px, -webkit-gradient(radial,50% 50%,0,50% 50%,24,color-stop(0%,rgba(255,255,255,0.7)),color-stop(100%,rgba(255,255,255,0)));
+}
+
+.x-toolbar-dark .x-button.x-button-pressed.event_add, .x-toolbar-dark .x-button.x-button-pressed.note_add_more, .x-toolbar-dark .x-button.x-button-pressed.todo_add {   
+    background: url(../rsc/btn-new-entry.png) no-repeat 5px 3px, -webkit-gradient(radial,50% 50%,0,50% 50%,24,color-stop(0%,rgba(255,255,255,0.7)),color-stop(100%,rgba(255,255,255,0)));
+}
+
+
+.event_add span, .note_add span, .note_more_add span, .todo_add span{
+    text-indent: -9999em;
+    border: none;
+}
+
+.x-toolbar .event_add, .x-toolbar .note_add, .x-toolbar .note_more_add, .x-toolbar .todo_add {
+    height:35px;
+    width: 38px;    
+    border:3px solid #6C9804;
+    color: white;
+    background: url(../rsc/btn-new-entry.png) no-repeat 5px 3px, -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#C2FA3B),color-stop(2%,#90CA05),color-stop(100%,#547503));
+}
+
+ .x-toolbar .note_more_add {
+    height:35px;
+    width: 38px;    
+    border:3px solid #6C9804;
+    color: white;
+    background: url(../rsc/btn-add-pic4.png) no-repeat 4px 4px, -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#C2FA3B),color-stop(2%,#90CA05),color-stop(100%,#547503));
+}
+
+
+.x-tabbar-light .x-tab {
+    color: #ccc;
+}
+
+.x-form-fieldset{
+    margin: 0em 0px 1em;
+}
+
+.event_date_container, .journal_date_container {
+    float: left;
+    width: 65px;
+    margin-right: 6px;
+}
+
+.event_item_day, .journal_item_day {
+    height: 27px;
+    background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#c2c2c2), to(#E0E0E0/* f3f0e7 */));
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid $item-border-color;
+    font-size: 16px;
+    padding-top: 5px;
+    text-shadow: 0px 1px 0px #fff;
+    color: $text-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.today_container .journal_item_day {
+    background: $today-date-highlight;
+    color: $today-date-color;
+    text-shadow: $today-date-font-style; 
+}
+
+.today_container .event_item_day {
+    background: $today-date-highlight;
+    color: $today-date-color;
+    text-shadow: $today-date-font-style; 
+}
+
+.event_item_date, .journal_item_date {
+    font-size: 1.8em;
+    font-weight: bold;
+    height: 55px;
+    display: block;
+    text-align: center;
+    text-shadow: 0px 1px 0px #fff;
+    border-right: 1px solid $item-border-color;
+    color: $text-color;
+    padding-top: 7px;
+}
+
+.notFirstDateChild .event_item_date span, .notFirstDateChild .journal_item_date span {
+    display: none;
+}
+
+.notFirstDateChild .event_item_day span, .notFirstDateChild .journal_item_day span {
+    display: none;    
+}
+
+.notFirstDateChild .event_item_date, .notFirstDateChild .journal_item_date  {
+    background: none;
+}
+
+.notFirstDateChild .event_item_day , .notFirstDateChild .journal_item_day  {
+     background: none;   
+     border-bottom: none;
+}
+
+.event_list_item, .journal_list_item {
+    color: $text-color;
+    padding-right: 5px;
+    font-size: 15px;
+/*     padding-top: 4px; */
+}
+
+div.journal_list_item.title {
+    width: 225px;
+    overflow:hidden;
+    display: block;
+/*     padding-top: 4px; */
+
+  /*   line-height: 11px; */
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.event_list_item.title  {
+   font-size: 15px;
+}
+
+.events_panel .x-list-item, .journals_panel .x-list-item{
+    padding: 0;
+    background: $list-item-bg;
+}
+
+.events_panel .x-list-item-body {
+    background: $list-item-bg;
+}
+
+.events_panel .x-list-header, .journals_panel .x-list-header {
+    background: $list-item-bg;
+    color: $text-color;
+    border-top: none;
+    border-bottom: 1px solid $item-border-color;
+    font-weight: normal;
+    text-shadow: 0px 1px 0px #fff;
+    -webkit-box-shadow: none;
+}
+
+.x-list-group h3.x-list-header {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#ebebeb));
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #bbb;
+}
+
+.x-mask-loading {
+    color:red;
+}
+
+/* =========================== Dashboard ============================== */
+
+.tasks_count_field input, .journal_posts_count_field input, .events_count_field input{
+    color: #000;
+    font-weight: bold;
+}
+
+.tasks_count_field input span {
+    padding-left: 20px;
+}
+
+.tasks_count_field .x-form-label, .journal_posts_count_field .x-form-label, .events_count_field .x-form-label {
+    width: 75%; 
+    font-size: 1.4em;
+    padding-top: .55em;
+    padding-left: 50px;
+}
+
+.tasks_count_field .x-form-label {
+    background: url('../rsc/icn-dashboard-task.png') 13px 11px no-repeat;
+}
+
+.journal_posts_count_field .x-form-label{
+    background: url('../rsc/icn-dashboard-journal.png') 13px 15px no-repeat;
+}
+
+.events_count_field  .x-form-label{
+    background: url('../rsc/icn-dashboard-event.png') 15px 14px no-repeat;
+}
+
+.last_sync_field-body {
+    margin-left: 25px;
+    margin-top: -19px;
+}
+
+.last_sync_field .x-item-disabled input{
+    color: #000;
+}
+
+.last_sync_field .x-form-label {
+    color: #ccc;
+}
+
+.tasks_count_field input, .journal_posts_count_field input, .events_count_field input {
+    text-align: center;
+}
+
+.dashboard_panel .x-form-label {
+    width: 60%;
+}
+
+.dashboard_panel .x-panel-body {
+    background-color: #fff;
+}
+
+.dashboard_panel .x-form-label span{
+    color: $text-color;
+}
+
+.last_sync_field .x-form-label, .last_sync_field .x-form-field-container input{
+    background: none;
+    border:none;
+}
+.last_sync_field .x-form-label {
+    width: 31%; 
+    padding: .4em 0 0 .3em;
+}
+
+.last_sync_field .x-form-field-container input {
+    font-size: .6em;
+}
+.x-button-Normal {
+    color: $text-color;
+    text-shadow: #f2f2f2 0px 1px 0px;
+}
+
+.last_sync_field-body input.x-input-text {
+    padding-top: 0;
+    margin-top: 0;
+    text-align: left;
+}
+
+/* =========================== Dashboard END ============================== */
+
+.x-toolbar.x-docked-top{
+    border-bottom: 0.1em solid #666;
+}
+
+.todo_container.last {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.292969) 0px 0.1em 0.3em;
+}
+
+.x-button.x-button-action, .x-button.x-button-action.x-button-back::after, .x-button.x-button-action.x-button-forward::after, .x-toolbar .x-button.x-button-action, .x-toolbar .x-button.x-button-action.x-button-back::after, .x-toolbar .x-button.x-button-action.x-button-forward::after, .x-button.x-button-action-round, .x-button.x-button-action-round.x-button-back::after, .x-button.x-button-action-round.x-button-forward::after, .x-toolbar .x-button.x-button-action-round, .x-toolbar .x-button.x-button-action-round.x-button-back::after, .x-toolbar .x-button.x-button-action-round.x-button-forward::after, .x-button.x-button-action-small, .x-button.x-button-action-small.x-button-back::after, .x-button.x-button-action-small.x-button-forward::after, .x-toolbar .x-button.x-button-action-small, .x-toolbar .x-button.x-button-action-small.x-button-back::after, .x-toolbar .x-button.x-button-action-small.x-button-forward::after, #signupButton {
+    background-image: -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#C2FA3B),color-stop(2%,#90CA05),color-stop(100%,#547503));
+    color:white;
+}
+
+.x-button.x-button-action.x-button-pressed, .x-button.x-button-action.x-button-pressed::after, .x-button.x-button-action.x-button-active, .x-button.x-button-action.x-button-active::after, .x-toolbar .x-button.x-button-action.x-button-pressed, .x-toolbar .x-button.x-button-action.x-button-pressed::after, .x-toolbar .x-button.x-button-action.x-button-active, .x-toolbar .x-button.x-button-action.x-button-active::after, .x-button.x-button-action-round.x-button-pressed, .x-button.x-button-action-round.x-button-pressed::after, .x-button.x-button-action-round.x-button-active, .x-button.x-button-action-round.x-button-active::after, .x-toolbar .x-button.x-button-action-round.x-button-pressed, .x-toolbar .x-button.x-button-action-round.x-button-pressed::after, .x-toolbar .x-button.x-button-action-round.x-button-active, .x-toolbar .x-button.x-button-action-round.x-button-active::after, .x-button.x-button-action-small.x-button-pressed, .x-button.x-button-action-small.x-button-pressed::after, .x-button.x-button-action-small.x-button-active, .x-button.x-button-action-small.x-button-active::after, .x-toolbar .x-button.x-button-action-small.x-button-pressed, .x-toolbar .x-button.x-button-action-small.x-button-pressed::after, .x-toolbar .x-button.x-button-action-small.x-button-active, .x-toolbar .x-button.x-button-action-small.x-button-active::after, #signupButton.x-button-pressed{
+    background-color: #547503;
+    background-image: -webkit-gradient(linear,0% 0,0% 100%,color-stop(0%,#304402),color-stop(10%,#425C02),color-stop(65%,#547503),color-stop(100%,#557803));
+    background-image: linear-gradient(top,#304402 0,#425C02 10%,#547503 65%,#557803 100%);
+}
+
+div.x-sheet.x-msgbox {
+    border: 0.15em solid #a0c203;
+}
+
+.x-tabbar.x-docked-top {
+    padding: 0px 0.4em;
+}
+
+/* Settings Page */ 
+
+.settings_page_text {
+    padding: .3em .2em .2em .5em;
+    color: #555;
+}
+
+.settings_page_text p {
+    padding: 5px 0px;
+    line-height: 100%;
+}
+
+.settings_page_text li{
+    list-style: disc;
+    font-size: .8em;
+    padding: 3px 0px 3px 10px;
+}
+
+.settings_page_text strong {
+    line-height: 120%;
+}
+
+.settingsNote {
+    font-size: .8em;
+    font-style: italic;
+}
+
+/* eo Settings Page */
+
+#loginButton, #signupButton {
+    margin-bottom: 20px;
+}
+
+#signupButton {
+    text-shadow: rgba(0, 0, 0, 0.496094) 0px -0.08em 0px;
+}
+
+.auth_panel .x-panel-body {
+    border:none;
+}
+
+strong {
+    font-weight: bold;
+    line-height: 12px;
+}
+
+.prev .event_list_item, .next .event_list_item, .journal_list_item.load_more {
+    text-align:center;
+    padding-top: 16px;
+    height: 50px;
+    font-weight: bold;
+    color: #009EE0;
+    background: #fff;
+}
+
+.x-list-item.x-item-pressed .next .event_list_item, .x-list-item.x-item-pressed .prev .event_list_item {
+        color: #fff;
+    background: #009EE0;
+}
+
+.x-list-item.x-item-pressed .feed_list_item {
+/*        color: #fff;*/
+	color: #E5E5E5;
+/*    background: #E5E5E5;*/
+}
+
+.event_empty_item {
+    margin-left: 0px;
+    height: 82px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.496094) 0px 0px 0.1em inset, rgba(255, 255, 255, 0.296875) 0px -0.1em 0px inset;
+    font-weight:bold;
+    color: #ccc;
+    padding: 33px 15px 0px 10px;
+    font-size: .7em;
+    text-align: center;
+}
+
+.events_panel h3.x-list-header, .journals_panel h3.x-list-header {
+    font-weight: bold;
+    text-shadow: 0px 1px 0px #fff;
+}
+
+.x-list {
+    background-color: #fff;
+}
+
+.x-tab img.team {-webkit-mask-image:url('../rsc/icn-events2.png');}
+
+.x-tab img.info {-webkit-mask-image:url('../rsc/icn-dashb.png');}
+
+.x-tab img.favorites {-webkit-mask-image:url('../rsc/icn-tasks.png') ;}
+
+.x-tab img.settings {-webkit-mask-image:url('../rsc/icn-settings.png');}
+
+.x-tab img.bookmarks {-webkit-mask-image:url('../rsc/icn-journal2.png');}
+
+.pin_code_field .x-form-label, .auto_sync_field .x-form-label, .auto_login_field .x-form-label, .due_at_field .x-form-label  {
+    padding-top: 14px;
+    width: 165px;
+}
+
+.daily_notif_time_field input {
+    text-align: left;
+    padding-top: 28px;
+    padding-left:0;
+    }
+
+.move_marked_tasks_after_field .x-form-label{
+    padding-top: 16px;
+}
+
+.move_marked_tasks_after_field input{
+    padding-left: 0px;
+}
+
+.move_marked_tasks_after_field .x-form-field-container input {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: $text-color;
+    height: 50px;
+    text-align: left;}
+
+.auto_sync_field .x-form-label, .auto_login_field .x-form-label, .daily_notif_time_field .x-form-label {
+    width: 140x;
+}
+
+.move_marked_tasks_after_field .x-form-label, .daily_notif_time_field .x-form-label {
+    width: 175px;
+}
+
+
+.pin_code_field .x-input-toggle, .auto_sync_field .x-input-toggle, .auto_login_field .x-input-toggle {
+
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.x-field-toggle .x-slider .x-thumb::before {
+    top: 0.15em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F7F7F7), color-stop(0.02, #CBCBCB), to(#fff));
+}
+
+.createdAt {
+    font-size: 11px;
+    color: #555;
+    float: left;
+    padding-top:0px;
+}
+
+.reminder.hasReminder {
+    height: 18px;
+    width: 15px;
+    background: url('../rsc/icn-reminder.png') 0px 0px no-repeat;
+    float:right;
+    margin-right: 16px;
+    margin-top: -3px;
+}
+
+.eventLocation {
+    height: 20px;
+}
+
+.eventTypeEvent {
+    background: url('../rsc/icn-events.png') 0px 0px no-repeat;   
+}
+
+.eventTypeAnniversary {
+    background: url('../rsc/icn-anniversary.png') 0px 0px no-repeat;
+}
+
+.eventTypeBirthday {
+    background: url('../rsc/icn-birthdays.png') 0px 0px no-repeat;
+}
+
+
+
+.eventTypeEvent, .eventTypeAnniversary, .eventTypeBirthday {
+    height: 30px;
+    width: 27px;
+    float:right;
+    margin-top: -38px;      
+    margin-right: 11px;
+}
+
+.eventDescMain {
+    height: 64px;
+    overflow:hidden;
+    padding-top: 4px;
+}
+
+.eventDescMain p.note {
+    margin-top: -2px;
+    width: 200px;
+    overflow: hidden;
+    background: url('../rsc/icn-eventNote.png') 0px 5px no-repeat; 
+    padding-left: 15px;
+}
+
+.x-tab .x-tab-normal .x-iconalign-left .x-tab-active .x-tab-pressed span.x-button-label {
+    color: #a0c203;
+}
+
+.eventTitle {
+    font-weight: bold;
+    padding-top: 0px;
+    width: 200px;
+    overflow: hidden;
+    height: 18px;
+}
+
+.settings_page_text h1 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.settings_page_text p, .settings_page_text li {
+    text-align: justify;
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.emptyJournalMessage, .emptyTaskMessage {
+    padding: 20px 0;
+    color: #CCCCCC;
+    text-align: center;
+    height: 350px;
+    width: 300px;
+}
+
+.emptyTaskMessage {
+    background: url('../rsc/icn-task-placeholder.png') no-repeat 70px 50px;
+}
+
+.emptyJournalMessage {
+    background: url('../rsc/icn-journal-placeholder.png') no-repeat 50px 90px;
+}
+
+a {
+    color: #009EE0;
+}
+
+.journalViewPage, .eventViewPage {
+    height: 480px;
+    border-bottom: none;
+}
+    
+.journalViewPageContent, .eventViewPageContent  {
+    line-height: 22px;
+    width: 305px;
+    overflow: hidden;
+}
+
+.journal_list_item_detail.title strong {
+    line-height: 28px;
+     
+}
+
+.journal_list_item_detail.title {
+    width: 300px;
+}
+
+.journalViewPageDate, .eventViewPageDate {
+    background: /* url('../rsc/bg-journal-detail-date3.png') no-repeat 0 5px , */ $list-item-bg;
+    padding: 5px 5px 10px 0px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0px;
+}
+
+.journalViewPageContent {
+    padding: 5px 10px 10px 10px;
+}
+
+.journalDetail {
+    color: $text-color;
+}
+
+.journalDetail.day, .eventDetail.day {
+    font-size: 16px;
+    -webkit-transform: rotate(270deg);
+    font-weight: bold;
+    margin-top: 20px;
+     float: left;
+     text-transform: uppercase;
+}
+
+.journalDetail.date, .eventDetail.date {
+    font-size: 48px;
+     float: left;
+     margin-right: 5px;
+     margin-left: -8px;
+}
+
+.journalDetail.month, .eventDetail.month {
+    margin-top: 7px;
+    font-weight: bold;
+}
+
+.journalDetail.year, .eventDetail.year {
+  font-weight: bold;
+}
+
+.clear {
+    clear:both;
+}
+
+.x-fullscreen {
+    background: #fff;
+}
+
+/* creation forms */
+
+.starts_at_field .x-form-label, .bday_day_field .x-form-label, .bday_month_field .x-form-label, .anniv_day_field .x-form-label, .anniv_month_field .x-form-label, .posted_at_field .x-form-label {
+    padding-top:7px;
+}
+
+.starts_at_time_field .x-form-label, .ends_at_field .x-form-label, .allday_field .x-form-label, .event_remind_before_field .x-form-label, .ends_at_time_field .x-form-label, .ends_at_time_field .x-form-label, .bday_remind_before_field .x-form-label, .anniv_remind_before_field .x-form-label {
+    padding-top:15px;
+}
+
+.x_group_type_next h3, .x_group_type_prev h3 {
+    display: none;
+}
+
+p.note {
+    font-size: 15px;
+    height: 20px;
+    overflow: hidden;
+    padding-top: 3px;
+}
+
+.journalDescMain {
+    height: 65px;
+    overflow: hidden;
+    padding-top: 4px;
+    width: 230px;
+}
+
+.eventLocation {
+    padding-left: 15px;
+    background: url('../rsc/icn-location.png') no-repeat 0px 4px;
+    overflow: hidden;
+    width: 200px;
+}
+
+.review_itunes, .twitter {
+    letter-spacing: -1px;
+}
+
+.todo_list_item p.taskDueAt {
+    color: #555;
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.completed .todo_list_item span{
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.completed .todo_list_item p.taskDueAt {
+     color: #ccc;
+      text-decoration: none; 
+}
+
+.journals_panel .x-toolbar-light, .events_panel .x-toolbar-light {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 0.1em 0.3em;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#888), to(#575757));
+    color: #CCC;
+}
+
+.btn-next-post {
+    display: block;
+    background: url('../rsc/btn-next-post.png') no-repeat 4px 0px;
+    height: 17px;
+    width: 20px;
+}
+
+.btn-prev-post {
+    display: block;
+    background: url('../rsc/btn-prev-post.png') no-repeat 0px 0px;
+    height: 17px;
+    width: 20px;
+}
+
+.journals_panel .x-docked-bottom .x-button.x-button-pressed {
+    background-color: #333;
+    background: -webkit-gradient(radial,50% 50%,0,50% 50%,24,color-stop(0%,rgba(255,255,255,0.7)),color-stop(100%,rgba(255,255,255,0)));
+}
+
+.journals_panel .x-toolbar-light .x-button, .events_panel .x-toolbar-light .x-button {
+    background: none;
+    border: none;
+    border: 3px solid #666;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.0898438) 0px 0.1em 0px;
+}
+
+
+.x-mask .x-mask-loading.syncFeedback {
+    padding-top: 10px;
+    background:rgba(0,0,0,0.25) url('../rsc/icn-sync.png') no-repeat 40px 55px;
+    text-align: center;
+    color:white;
+}
+
+/* pincode */
+
+.pinCodePage {
+/*     background:  -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#666)); */
+    height: 100%;
+    
+}
+
+.pinCodeMsg {
+    text-align: center;
+    color: #494949;
+    padding: 30px 0;
+}
+
+.keypad {
+    margin: 0px 10%;
+}
+
+.keypadCont {
+    position:absolute;
+    bottom:10%;
+    width: 100%;
+}
+
+li.numClass {
+    text-align: center;
+    display: block;
+    width: 31%; 
+    float: left;
+    height: 50px;
+    color:#444;
+    background: -webkit-gradient(linear, left top, left bottom, from(#EBEBEB), to(#A1A1A1));
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+    font-weight: bold;
+    margin: 0 5px 5px 0px;
+    padding-top: 12px;
+    border:1px solid #ccc;
+    -webkit-border-radius: 4px;
+   
+}
+
+.last {
+    margin-right: 0;
+}
+
+.keys {
+    height: 80%;
+}
+
+.clear {
+    clear: both;
+    margin: 0;
+    padding:0;
+}
+
+.circle {
+    background: url('../rsc/icn-pin-off.png') no-repeat;
+    width: 14px;
+    height: 14px;
+    float:left;
+     text-indent: -9999em;
+}
+
+.circle.on {
+    background: url('../rsc/icn-pin-on.png') no-repeat;
+}
+
+.pinDots ul {
+     width: 195px;
+     margin: 0 auto;
+}
+
+.pinDots ul li {
+   margin-right: 46px;
+}
+
+.pinDots ul li.last {
+    margin-right: 0px;
+}
+
+.pinDots {
+    text-align: center;
+    width: 100%;
+}
+
+#changePinCodeField {
+    background: url('../rsc/icn-chevron.png') no-repeat right middle;
+    background-color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 14px 10px 10px 10px;
+    color: #333;
+    border-top: 1px solid #fff;
+
+    border-bottom: 1px solid #DDD;
+}
+
+.x-form-label {
+    background-color: #fff;
+}
+
+.daily_notif_time_field .x-form-field-container{
+    background: #fff;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: bold;
+    height: 50px;
+    text-align: right;
+}
+
+
+.pinCodeWarnMsg {
+    font-size: 10px;
+    color: #666;
+    font-style: italic;    
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.red {
+    color:red;
+}
+
+.green {
+    color: #a0c203;
+}
+
+#dailyNotifTimeField input, #tasksMoverDelayField input {
+    padding-left: 8px;
+}
+
+.settings_page_text p.versionNumber {
+    background: #a0c203;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    color: #fff;
+    float:left;
+    margin: 10px 0;
+    font-weight: bold;
+    
+}
+
+.settings_page_text h1 {
+    clear:both;
+}
+
+.last_sync_field-body .x-field{
+    border:none;
+}
+
+.journalViewPageContent, .eventViewPageContent  {
+    padding: 10px;
+}
+
+.btn-add-pic {
+display: block;
+background: url("../rsc/btn-add-pic.png") no-repeat 0px 0px;
+height: 20px;
+width: 25px;
+}
